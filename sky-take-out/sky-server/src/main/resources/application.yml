@@ -14,8 +14,9 @@ spring:
       password: ${sky.datasource.password}
 
 mybatis:
-  #mapper配置文件
+  #mapper配置文件  classpath是resourse文件下的路径
   mapper-locations: classpath:mapper/*.xml
+  # mapper文件的参数类型和返回值类型实习类的别名
   type-aliases-package: com.sky.entity
   configuration:
     #开启驼峰命名
@@ -33,7 +34,7 @@ sky:
   jwt:
     # 设置jwt签名加密时使用的秘钥
     admin-secret-key: itcast
-    # 设置jwt过期时间
-    admin-ttl: 7200000
+    # 设置jwt过期时间  这是毫秒值 2*1000个小时
+    admin-ttl: 7200000000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
