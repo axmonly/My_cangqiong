@@ -32,7 +32,7 @@ logging:
 
 sky:
   jwt:
-    # 设置jwt签名加密时使用的秘钥
+    # 设置jwt签名加密时使用的秘钥   *** 是jwt字符串的第三部分  签名密钥
     admin-secret-key: itcast
     # 设置jwt过期时间  这是毫秒值 2*1000个小时
     admin-ttl: 7200000000

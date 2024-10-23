@@ -33,7 +33,7 @@ public class EmployeeController {
     private JwtProperties jwtProperties;
 
     /**
-     * 登录
+     * 登录           只有登录时候，可以不携带jwt的token，但是其他请求都必须带有token
      *
      * @param employeeLoginDTO
      * @return
@@ -46,6 +46,7 @@ public class EmployeeController {
         Employee employee = employeeService.login(employeeLoginDTO);
 
         //登录成功后，生成jwt令牌   ***   jwt如果未授权，返回的值是 401
+        //   ******  getAdminSecretKey(),是jwt字符串的第三部分  签名密钥
         Map<String, Object> claims = new HashMap<>();
 
         claims.put(JwtClaimsConstant.EMP_ID, employee.getId());
